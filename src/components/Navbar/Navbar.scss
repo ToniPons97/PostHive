@@ -1,0 +1,94 @@
+@use '../../variables.scss' as vars;
+
+html {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 62.5%;
+    color: vars.$text-color-primary;
+}
+
+nav {
+    position: fixed;
+    z-index: 10;
+    background: vars.$card-bg-primary;
+    width: 100vw;
+    border-bottom: 1px solid rgba(138, 105, 105, 0.4);
+    align-items: center;
+
+    ul {
+        list-style: none;
+        display: flex;
+        gap: 4rem;
+        margin: 1rem 2rem;
+        align-items: center;
+
+
+        &>li:first-child {
+            flex: 1;
+
+            div {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: #495464;
+            text-transform: uppercase;
+        }
+
+        a:hover,
+        a:focus,
+        li:focus,
+        li:focus {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+    }
+
+}
+
+.logo {
+    width: 2rem;
+    height: 2rem;
+    animation: blink-rotate-left 1s ease-in-out;
+    
+    &:hover {
+        // Matrix.
+        cursor: pointer;
+        animation: blink-rotate-right 0.5s ease-out infinite;
+    }
+}
+
+@keyframes blink-rotate-left {
+    0% {
+        color: vars.$remove-color;
+        opacity: 0.6;
+    }
+
+    100% {
+        color: vars.$remove-color;
+        opacity: 1;
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes blink-rotate-right {
+    0% {
+        color: vars.$remove-color;
+        opacity: 0.6;
+    }
+
+    100% {
+        color: vars.$remove-color;
+        opacity: 1;
+        transform: rotate(360deg) scale(1.2, 1.2);
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    html {
+        font-size: 100%;
+    }
+}
